@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TO-DO LIST</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    <style>
+      /* Center align the table headers */
+      th:nth-child(1),
+      th:nth-child(2),
+      th:nth-child(3) {
+        text-align: center;
+      }
+
+      /* Add margin to the top of the container */
+      .container {
+        margin-top: 50px;
+      }
+
+      body {
+  background-color: #b6d6e3;
+}
+
+
+      /* Style the input and select fields */
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+      }
+
+      /* Style the "ADD TASK" button */
+      #add {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 12px;
+      }
+
+      /* Style the table */
+      table {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+      }
+      table{
+        margin: auto;
+      }
+
+      td,
+      th {
+        border: 1px solid #121111;
+        padding: 8px;
+      }
+
+      th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      /* Style the "Delete TASK" button */
+      .btn-danger {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        
+        border-radius: 30px;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      /* Center align the "Delete TASK" button */
+      .btn-danger {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Center align the text in the "TASKS LIST" heading */
+      h1 {
+        text-align: center;
+      }
+
+    </style>
+
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <section class="container">
+      <h1>TO-DO LIST</h1>
+
+      <!-- form to create task -->
+      <form action="/create-task" method="POST">
+      <form action="/delete-selected" method="POST">
+
+        <table class="table">
+          <thead>
+            <tr class="table-active">
+              <th>Add Task</th>
+              <th>Category</th>
+              <th>Due Date</th>
+              <th></th>
+              
+              
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" name="description" placeholder="What do you need to do?" required>
+              </input></th>
+              </td>
+              <td>
+                <select name="category" required>
+                  <option>PERSONAL</option>
+                  <option>WORK</option>
+                  <option>COLLEGE</option>
+                  <option>CLEANING</option>
+                  <option>OTHER</option>
+                </select>
+              </td>
+              <td>
+                <input type="date" name="date" >
+              </td>
+              <td>
+                <input type="submit" class="btn" id="add" value="ADD TASK">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </form>
+        </section>
+        <section class ="container"></section>
+        <h1 align="middle">TASK LISTS</h1>
+        <form action="/delete-task" method="GET">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>Task</th>
+              <th>Category</th>
+              <th>Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% for(let i of list_data){%>
+          
+            <tr>
+              <td><input type="checkbox" name="<%= i._id %>"></td>
+              <td> <p id="Task-Description"><%= i.description %></td>
+               <td><p id="Task-Category"><%= i.category %></p></td>
+               <td>
+                <% if (i.date) { %>
+                  <p id="Due-Date"><%= i.date %></p>
+                <% } else { %>
+                  <p id="No-Deadline">No deadline given</p>
+                <% } %>
+              
+</tr>
+          <%} %>
+       </table>
+       <div align="center">
+        <input type="submit" class="btn btn-danger" style="font-size: 20px; margin-top: 20px;" value="DELETE TASK" data-inline="true">
+      </div>
+      
+      </form> 
+            </div>
+    </body>
+    
+</html>
+
+              
+
+        
+            </div>
+    </body>
+    
+</html>
