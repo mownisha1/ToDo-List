@@ -1,1 +1,1 @@
-Install node modules file by entering "npm install nodemon" in the command prompt.
+Install node modules file by entering "npm install nodemon" in the terminal.
